@@ -5,7 +5,7 @@ import { Entry } from './entities/entry.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-  imports:[TypeOrmModule.forFeature([Entry])],
+  imports: [TypeOrmModule.forFeature([Entry])],
   controllers: [EntriesController],
   providers: [EntriesService],
 })

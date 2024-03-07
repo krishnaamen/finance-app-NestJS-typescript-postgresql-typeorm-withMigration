@@ -1,6 +1,7 @@
 import { DataSource, DataSourceOptions } from 'typeorm';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import * as dotenv from 'dotenv';
+import { resolve } from 'path';
 dotenv.config();
 
 export const dbConfig: TypeOrmModuleOptions = {
@@ -11,16 +12,17 @@ export const dbConfig: TypeOrmModuleOptions = {
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
   synchronize: true,
-  entities: ['dist/**/*.entity{·ts,.js}'],
-  migrations: ['dist/src/migrations/*{.ts,.js}'],
+  entities: [resolve(__dirname, 'dist/**/*.entity{.ts,.js}')],
+  migrations: [resolve(__dirname, 'dist/src/migrations/*{.ts,.js}')],
 };
 
 export const testDbConfig: TypeOrmModuleOptions = {
   type: 'sqlite',
   database: ':memory:',
   synchronize: true,
-  entities: ['dist/**/*.entity{·ts,.js}'],
-  migrations: ['dist/src/migrations/*{.ts,.js}'],
+  entities: [resolve(__dirname, 'dist/**/*.entity{.ts,.js}')],
+  migrations: [resolve(__dirname, 'dist/src/migrations/*{.ts,.js}')],
+  autoLoadEntities: true,
 };
 
 const dataSource = new DataSource(dbConfig as DataSourceOptions);

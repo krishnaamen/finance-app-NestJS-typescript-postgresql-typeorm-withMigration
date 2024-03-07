@@ -10,10 +10,16 @@ export class EntriesService {
   constructor(
     @InjectRepository(Entry)
     private entryRepository: Repository<Entry>,
-  ) {}
+  ) { }
 
   create(createEntryDto: CreateEntryDto) {
-    return this.entryRepository.save(createEntryDto);
+    const entry = new Entry();
+    entry.amount = createEntryDto.amount;
+    entry.currency = createEntryDto.currency;
+    entry.name = createEntryDto.name;
+    entry.description = createEntryDto.comment;
+    entry.category = createEntryDto.category;
+    return this.entryRepository.save(entry);
   }
 
   findAll() {

@@ -31,7 +31,13 @@ export class EntriesService {
   }
 
   update(id: number, updateEntryDto: UpdateEntryDto) {
-    return this.entryRepository.update(id, updateEntryDto);
+    const entry = new Entry();
+    entry.amount = updateEntryDto.amount;
+    entry.currency = updateEntryDto.currency;
+    entry.name = updateEntryDto.name;
+    entry.description = updateEntryDto.comment;
+    entry.category = updateEntryDto.category;
+    return this.entryRepository.update(id, entry);
   }
 
   remove(id: number) {

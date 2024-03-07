@@ -33,7 +33,6 @@ export class CreateEntryDto {
   @IsString()
   category: string;
 
-
   constructor(
     amount: number,
     date: Date,

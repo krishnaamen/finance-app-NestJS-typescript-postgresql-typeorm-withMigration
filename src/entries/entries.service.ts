@@ -10,7 +10,7 @@ export class EntriesService {
   constructor(
     @InjectRepository(Entry)
     private entryRepository: Repository<Entry>,
-  ) { }
+  ) {}
 
   create(createEntryDto: CreateEntryDto) {
     const entry = new Entry();

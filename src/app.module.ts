@@ -17,4 +17,4 @@ import { CategoriesModule } from './categories/categories.module';
   controllers: [],
   providers: [],
 })
-export class AppModule { }
+export class AppModule {}

@@ -17,7 +17,7 @@ export class EntriesService {
     entry.amount = createEntryDto.amount;
     entry.currency = createEntryDto.currency;
     entry.name = createEntryDto.name;
-    entry.description = createEntryDto.comment;
+    entry.description = createEntryDto.comment || createEntryDto.description;
     entry.category = createEntryDto.category;
     return this.entryRepository.save(entry);
   }

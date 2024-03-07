@@ -26,6 +26,10 @@ export class CreateEntryDto {
   @IsString()
   comment: string;
 
+  @IsOptional()
+  @IsString()
+  description?: string;
+
   @IsString()
   category: string;
 
@@ -43,6 +47,7 @@ export class CreateEntryDto {
     this.currency = currency;
     this.name = name;
     this.comment = comment;
+    this.description = comment;
     this.category = category;
   }
 }

@@ -15,5 +15,13 @@ export const dbConfig: TypeOrmModuleOptions = {
   migrations: ['dist/src/migrations/*{.ts,.js}'],
 };
 
+export const testDbConfig: TypeOrmModuleOptions = {
+  type: 'sqlite',
+  database: ':memory:',
+  synchronize: true,
+  entities: ['dist/**/*.entity{·ts,.js}'],
+  migrations: ['dist/src/migrations/*{.ts,.js}'],
+};
+
 const dataSource = new DataSource(dbConfig as DataSourceOptions);
 export default dataSource;

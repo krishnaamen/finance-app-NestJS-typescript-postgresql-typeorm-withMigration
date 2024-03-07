@@ -13,7 +13,7 @@ import { UpdateEntryDto } from './dto/update-entry.dto';
 
 @Controller('entries')
 export class EntriesController {
-  constructor(private readonly entriesService: EntriesService) {}
+  constructor(readonly entriesService: EntriesService) {}
 
   @Post()
   create(@Body() createEntryDto: CreateEntryDto) {
